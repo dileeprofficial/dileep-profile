@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dileep R — Mobile & Web Application Developer</title>
+  <meta name="description" content="Software developer with 6 years of experience in mobile and backend development. Available to take over, maintain, and build new applications. Based in Trivandrum." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dileep R — Mobile & Web Application Developer" />
+  <meta property="og:description" content="6 years of mobile and backend experience. Available for new projects and maintenance contracts." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #FBFAF7;
+      --surface: #FFFFFF;
+      --ink: #14181D;
+      --muted: #5B6470;
+      --subtle: #8A8F97;
+      --border: #E7E3DB;
+      --border-soft: #F0EDE5;
+      --accent: #1F5F3F;
+      --accent-hover: #174A30;
+      --accent-soft: #E8F0EB;
+      --accent-text: #134628;
+
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --max: 980px;
+      --pad: clamp(20px, 5vw, 48px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.55;
+      font-size: 16px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* --- Header ------------------------------------------------ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(251, 250, 247, 0.85);
+      backdrop-filter: saturate(180%) blur(10px);
+      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    .nav.scrolled { border-bottom-color: var(--border); }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: -0.01em;
+    }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: var(--ink);
+      color: var(--bg);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background 0.15s ease;
+    }
+    .nav-cta:hover { background: var(--accent); }
+
+    /* --- Layout ------------------------------------------------ */
+    main { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+    section { padding: 72px 0; border-bottom: 1px solid var(--border-soft); }
+    section:last-child { border-bottom: none; }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 18px;
+      height: 1px;
+      background: var(--muted);
+      vertical-align: middle;
+      margin-right: 10px;
+      margin-bottom: 3px;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(28px, 4vw, 36px);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      margin: 0 0 28px;
+      max-width: 720px;
+    }
+
+    /* --- Hero -------------------------------------------------- */
+    .hero {
+      padding: 80px 0 80px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      background: var(--accent-soft);
+      color: var(--accent-text);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      position: relative;
+    }
+    .status-dot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      animation: pulse 2.4s ease-out infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(2.6); opacity: 0; }
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-variation-settings: "opsz" 144;
+      font-weight: 500;
+      font-size: clamp(56px, 11vw, 112px);
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      margin: 0 0 20px;
+      color: var(--ink);
+    }
+    .hero-name em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+    .hero-tagline {
+      font-size: clamp(18px, 2.2vw, 22px);
+      line-height: 1.45;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 0 36px;
+      font-weight: 400;
+    }
+    .hero-tagline strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+      border: 1px solid transparent;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--ink); }
+    .btn svg { width: 16px; height: 16px; }
+
+    .hero-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-soft);
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .hero-meta div { display: flex; flex-direction: column; gap: 2px; }
+    .hero-meta span { color: var(--ink); font-weight: 500; }
+
+    /* --- About ------------------------------------------------- */
+    .about-text {
+      font-size: clamp(18px, 2vw, 21px);
+      line-height: 1.55;
+      max-width: 720px;
+      color: var(--ink);
+      margin: 0;
+      font-weight: 400;
+    }
+    .about-text strong { font-weight: 600; }
+
+    /* --- Expertise grid --------------------------------------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .card:hover {
+      border-color: var(--ink);
+      transform: translateY(-2px);
+    }
+    .card-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .card-text { color: var(--ink); font-size: 15px; line-height: 1.5; }
+
+    /* --- Highlights list -------------------------------------- */
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .list li {
+      padding: 20px 0;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+    .list li:last-child { border-bottom: 1px solid var(--border-soft); }
+    .list-num {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+      min-width: 30px;
+      font-size: 18px;
+      padding-top: 1px;
+    }
+
+    /* --- Services -------------------------------------------- */
+    .services {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+    }
+    .services-intro {
+      color: var(--muted);
+      margin: 0 0 24px;
+      font-size: 16px;
+    }
+    .services ul { list-style: none; padding: 0; margin: 0; }
+    .services li {
+      padding: 16px 0;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .services li:first-child { border-top: none; }
+    .check {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .check svg { width: 12px; height: 12px; }
+
+    /* --- Contact CTA section --------------------------------- */
+    .contact {
+      text-align: center;
+      padding: 96px 0 80px;
+    }
+    .contact h2 {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+    .contact-sub {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+    .contact-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* --- Footer ---------------------------------------------- */
+    footer {
+      padding: 32px var(--pad) 48px;
+      max-width: var(--max);
+      margin: 0 auto;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--subtle);
+    }
+
+    /* --- Motion ---------------------------------------------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: reveal 0.7s ease-out forwards;
+    }
+    .reveal-1 { animation-delay: 0.05s; }
+    .reveal-2 { animation-delay: 0.15s; }
+    .reveal-3 { animation-delay: 0.25s; }
+    .reveal-4 { animation-delay: 0.35s; }
+    .reveal-5 { animation-delay: 0.45s; }
+    @keyframes reveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+      .status-dot::after { display: none; }
+    }
+
+    /* --- Mobile tweaks --------------------------------------- */
+    @media (max-width: 640px) {
+      section { padding: 56px 0; }
+      .hero { padding: 56px 0 56px; }
+      .services { padding: 24px; }
+      .hero-meta { gap: 20px; }
+      .nav-name { font-size: 16px; }
+      .nav-cta { padding: 7px 12px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-name" href="#top">Dileep R</a>
+      <a class="nav-cta" href="#contact">Get in touch</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="status reveal reveal-1">
+        <span class="status-dot"></span>
+        Available for new projects
+      </div>
+      <h1 class="hero-name reveal reveal-2">
+        Dileep&nbsp;R
+      </h1>
+      <p class="hero-tagline reveal reveal-3">
+        <strong>Mobile &amp; Web Application Developer.</strong>
+        Six years of experience building, shipping, and maintaining production apps — including projects inherited from other developers.
+      </p>
+      <div class="hero-actions reveal reveal-4">
+        <a class="btn btn-primary" href="mailto:dileeprofficial@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email me
+        </a>
+        <a class="btn btn-secondary" href="tel:+917012308256">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 70123 08256
+        </a>
+      </div>
+      <div class="hero-meta reveal reveal-5">
+        <div>Based in <span>Trivandrum, India</span></div>
+        <div>Experience <span>6+ years</span></div>
+        <div>Open to <span>Maintenance · New builds · AMC</span></div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <span class="eyebrow">About</span>
+      <h2>Building reliable apps, and stepping in when other developers leave projects behind.</h2>
+      <p class="about-text">
+        I'm a software developer with six years of experience in mobile application development, supported by strong backend skills across <strong>Node.js, Python, and PHP</strong>, and hands-on experience with <strong>Firebase, PostgreSQL, and MySQL</strong>. I'm comfortable taking over existing applications — reviewing another developer's codebase, identifying issues, stabilising the project, and keeping it running reliably. If your project has lost its original developer, I can step in and continue from where things were left.
+      </p>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise">
+      <span class="eyebrow">What I work with</span>
+      <h2>Expertise across mobile, backend, and integrations.</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-label">Mobile Development</div>
+          <div class="card-text">Flutter &amp; Dart for cross-platform apps. State management with Provider, Riverpod, and Bloc. Working knowledge of native Android (Kotlin) and iOS (Swift). End-to-end App Store and Play Store releases.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Backend Development</div>
+          <div class="card-text">Node.js (Express), Python (Flask, Django), and PHP (Laravel). REST API design, authentication and authorization flows, server-side business logic, and third-party integrations.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Databases</div>
+          <div class="card-text">Firebase Realtime Database and Firestore, PostgreSQL, MySQL, MongoDB, and Redis. Schema design, query optimisation, and data migrations.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Integrations &amp; APIs</div>
+          <div class="card-text">Payment gateways (Razorpay, Stripe), push notifications (FCM, APNs), OAuth and social login, maps and location services, SMS and email providers, and analytics platforms.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Web &amp; Tooling</div>
+          <div class="card-text">HTML, CSS, JavaScript, and responsive design. Postman, Git &amp; GitHub, Agile workflows, debugging legacy code, and code reviews.</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Maintenance &amp; Support</div>
+          <div class="card-text">Reading and understanding existing codebases, taking over projects mid-flight, fixing inherited issues, and keeping production applications running reliably over time.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <span class="eyebrow">Experience</span>
+      <h2>A track record of shipping and maintaining real applications.</h2>
+      <ul class="list">
+        <li><span class="list-num">i</span><span>6+ years building and shipping mobile applications across Android and iOS.</span></li>
+        <li><span class="list-num">ii</span><span>Designed and maintained backend services using Python, Node.js, and PHP.</span></li>
+        <li><span class="list-num">iii</span><span>Built and published a production matrimonial application end to end — Flutter front end, Firebase, and a PHP backend — including ongoing updates and store submissions.</span></li>
+        <li><span class="list-num">iv</span><span>Comfortable inheriting and continuing work on projects started by other developers.</span></li>
+      </ul>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <span class="eyebrow">Services</span>
+      <h2>How I can help.</h2>
+      <div class="services">
+        <p class="services-intro">I can take over an existing project or build something new, on a one-time or ongoing basis:</p>
+        <ul>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Review and handover assessment of the current code and setup.</span></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Development and deployment of new applications.</span></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Bug fixing and issue resolution.</span></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Content edits and feature updates.</span></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Deployment, hosting, and release support.</span></li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Ongoing maintenance and support — Annual Maintenance Contracts can be arranged to suit your needs and budget.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Tell me about your project.</h2>
+      <p class="contact-sub">Whether you need someone to take over an existing application or build something new, I'd be glad to hear what you're working on.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:dileeprofficial@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          dileeprofficial@gmail.com
+        </a>
+        <a class="btn btn-secondary" href="tel:+917012308256">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 70123 08256
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>Dileep R · Trivandrum, India</div>
+    <div>Available for new projects</div>
+  </footer>
+
+  <script>
+    // Add border to nav on scroll
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      if (window.scrollY > 8) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+</body>
+</html>

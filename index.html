@@ -4,67 +4,87 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dileep R — Mobile & Web Application Developer</title>
-  <meta name="description" content="Software developer with 6 years of experience in mobile and backend development. Available to take over, maintain, and build new applications. Based in Trivandrum." />
+  <meta name="description" content="Software developer with 6 years of experience in mobile development, backend, and UI/UX design. Available for new projects and maintenance contracts." />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Dileep R — Mobile & Web Application Developer" />
-  <meta property="og:description" content="6 years of mobile and backend experience. Available for new projects and maintenance contracts." />
+  <meta property="og:description" content="6 years of mobile, backend, and UI/UX experience. Available for new projects and maintenance." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #FBFAF7;
-      --surface: #FFFFFF;
-      --ink: #14181D;
-      --muted: #5B6470;
-      --subtle: #8A8F97;
-      --border: #E7E3DB;
-      --border-soft: #F0EDE5;
-      --accent: #1F5F3F;
-      --accent-hover: #174A30;
-      --accent-soft: #E8F0EB;
-      --accent-text: #134628;
+      --bg: #07080B;
+      --bg-elev: #0C0E13;
+      --surface: rgba(255, 255, 255, 0.025);
+      --surface-hover: rgba(255, 255, 255, 0.05);
+      --text: #ECEEF2;
+      --text-bright: #FFFFFF;
+      --muted: #8990A0;
+      --subtle: #5A6072;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-bright: rgba(255, 255, 255, 0.18);
+      --accent: #5EEAD4;
+      --accent-2: #818CF8;
+      --accent-glow: rgba(94, 234, 212, 0.35);
+      --accent-soft: rgba(94, 234, 212, 0.08);
 
-      --font-display: 'Fraunces', Georgia, serif;
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-      --max: 980px;
-      --pad: clamp(20px, 5vw, 48px);
+      --max: 1080px;
+      --pad: clamp(20px, 5vw, 56px);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: var(--font-body);
       background: var(--bg);
-      color: var(--ink);
+      color: var(--text);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       line-height: 1.55;
       font-size: 16px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, #000 30%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
     }
 
     a { color: inherit; text-decoration: none; }
 
-    /* --- Header ------------------------------------------------ */
     .nav {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(251, 250, 247, 0.85);
-      backdrop-filter: saturate(180%) blur(10px);
-      -webkit-backdrop-filter: saturate(180%) blur(10px);
+      background: rgba(7, 8, 11, 0.65);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
       border-bottom: 1px solid transparent;
-      transition: border-color 0.2s ease;
+      transition: border-color 0.2s ease, background 0.2s ease;
     }
-    .nav.scrolled { border-bottom-color: var(--border); }
+    .nav.scrolled {
+      border-bottom-color: var(--border);
+      background: rgba(7, 8, 11, 0.85);
+    }
     .nav-inner {
       max-width: var(--max);
       margin: 0 auto;
@@ -76,83 +96,137 @@
     .nav-name {
       font-family: var(--font-display);
       font-weight: 600;
-      font-size: 18px;
+      font-size: 16px;
       letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-name::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
     }
     .nav-cta {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 8px 14px;
-      background: var(--ink);
+      padding: 8px 16px;
+      background: var(--accent);
       color: var(--bg);
       border-radius: 999px;
-      font-size: 14px;
-      font-weight: 500;
-      transition: background 0.15s ease;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: var(--font-body);
+      transition: all 0.2s ease;
     }
-    .nav-cta:hover { background: var(--accent); }
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
 
-    /* --- Layout ------------------------------------------------ */
-    main { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
-
-    section { padding: 72px 0; border-bottom: 1px solid var(--border-soft); }
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+      position: relative;
+      z-index: 1;
+    }
+    section { padding: 96px 0; border-bottom: 1px solid var(--border); }
     section:last-child { border-bottom: none; }
 
     .eyebrow {
-      display: inline-block;
-      font-family: var(--font-body);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
       font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 18px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--accent);
+      margin-bottom: 22px;
     }
     .eyebrow::before {
-      content: "";
-      display: inline-block;
-      width: 18px;
-      height: 1px;
-      background: var(--muted);
-      vertical-align: middle;
-      margin-right: 10px;
-      margin-bottom: 3px;
+      content: "//";
+      color: var(--muted);
     }
 
     h2 {
       font-family: var(--font-display);
       font-weight: 500;
-      font-size: clamp(28px, 4vw, 36px);
-      line-height: 1.15;
-      letter-spacing: -0.015em;
-      margin: 0 0 28px;
-      max-width: 720px;
+      font-size: clamp(30px, 4.5vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin: 0 0 36px;
+      max-width: 760px;
+      color: var(--text-bright);
     }
 
-    /* --- Hero -------------------------------------------------- */
     .hero {
-      padding: 80px 0 80px;
-      border-bottom: 1px solid var(--border-soft);
+      padding: 90px 0 100px;
+      position: relative;
+      overflow: hidden;
     }
+    .hero::before, .hero::after {
+      content: "";
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: -1;
+      will-change: transform;
+    }
+    .hero::before {
+      background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+      opacity: 0.18;
+      top: -150px;
+      left: -100px;
+      animation: drift1 18s ease-in-out infinite;
+    }
+    .hero::after {
+      background: radial-gradient(circle, var(--accent-2) 0%, transparent 70%);
+      opacity: 0.22;
+      top: 50px;
+      right: -150px;
+      animation: drift2 22s ease-in-out infinite;
+    }
+    @keyframes drift1 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(80px, 60px) scale(1.1); }
+    }
+    @keyframes drift2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-100px, 40px) scale(1.15); }
+    }
+
     .status {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      background: var(--accent-soft);
-      color: var(--accent-text);
+      gap: 10px;
+      padding: 7px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
       border-radius: 999px;
-      font-size: 13px;
+      font-family: var(--font-mono);
+      font-size: 12px;
       font-weight: 500;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
     .status-dot {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border-radius: 999px;
       background: var(--accent);
       position: relative;
+      box-shadow: 0 0 8px var(--accent-glow);
     }
     .status-dot::after {
       content: "";
@@ -163,201 +237,272 @@
       animation: pulse 2.4s ease-out infinite;
     }
     @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.7; }
-      100% { transform: scale(2.6); opacity: 0; }
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(3); opacity: 0; }
     }
 
     .hero-name {
       font-family: var(--font-display);
-      font-variation-settings: "opsz" 144;
       font-weight: 500;
-      font-size: clamp(56px, 11vw, 112px);
-      line-height: 0.95;
-      letter-spacing: -0.035em;
-      margin: 0 0 20px;
-      color: var(--ink);
+      font-size: clamp(64px, 13vw, 144px);
+      line-height: 0.92;
+      letter-spacing: -0.045em;
+      margin: 0 0 24px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 50%, rgba(236, 238, 242, 0.6) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
     }
-    .hero-name em {
+    .hero-name .accent {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
       font-style: italic;
       font-weight: 400;
-      color: var(--accent);
     }
+
     .hero-tagline {
       font-size: clamp(18px, 2.2vw, 22px);
       line-height: 1.45;
       color: var(--muted);
-      max-width: 580px;
-      margin: 0 0 36px;
+      max-width: 620px;
+      margin: 0 0 40px;
       font-weight: 400;
     }
-    .hero-tagline strong {
-      color: var(--ink);
-      font-weight: 600;
-    }
+    .hero-tagline strong { color: var(--text-bright); font-weight: 600; }
 
     .hero-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 40px;
+      margin-bottom: 56px;
     }
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 14px 22px;
-      border-radius: 10px;
+      border-radius: 12px;
       font-family: var(--font-body);
       font-size: 15px;
       font-weight: 500;
-      transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+      transition: all 0.2s ease;
       border: 1px solid transparent;
+      cursor: pointer;
     }
     .btn:active { transform: translateY(1px); }
     .btn-primary {
       background: var(--accent);
-      color: #fff;
+      color: var(--bg);
     }
-    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px var(--accent-glow);
+    }
     .btn-secondary {
-      background: transparent;
-      color: var(--ink);
+      background: var(--surface);
+      color: var(--text-bright);
       border-color: var(--border);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
-    .btn-secondary:hover { border-color: var(--ink); }
+    .btn-secondary:hover {
+      border-color: var(--border-bright);
+      background: var(--surface-hover);
+    }
     .btn svg { width: 16px; height: 16px; }
 
     .hero-meta {
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-      padding-top: 28px;
-      border-top: 1px solid var(--border-soft);
-      font-size: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      padding: 24px 0 0;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 12px;
       color: var(--muted);
     }
-    .hero-meta div { display: flex; flex-direction: column; gap: 2px; }
-    .hero-meta span { color: var(--ink); font-weight: 500; }
+    .hero-meta-item { display: flex; flex-direction: column; gap: 6px; }
+    .hero-meta-label {
+      color: var(--subtle);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .hero-meta-value {
+      color: var(--text-bright);
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+    }
 
-    /* --- About ------------------------------------------------- */
     .about-text {
-      font-size: clamp(18px, 2vw, 21px);
+      font-size: clamp(18px, 2vw, 22px);
       line-height: 1.55;
-      max-width: 720px;
-      color: var(--ink);
+      max-width: 760px;
+      color: var(--text);
       margin: 0;
       font-weight: 400;
     }
-    .about-text strong { font-weight: 600; }
+    .about-text strong { color: var(--text-bright); font-weight: 600; }
 
-    /* --- Expertise grid --------------------------------------- */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
     }
     .card {
+      position: relative;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      transition: border-color 0.15s ease, transform 0.15s ease;
+      border-radius: 14px;
+      padding: 26px;
+      transition: all 0.25s ease;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
     .card:hover {
-      border-color: var(--ink);
+      border-color: var(--border-bright);
+      background: var(--surface-hover);
       transform: translateY(-2px);
     }
+    .card:hover::before { opacity: 0.6; }
+    .card-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--subtle);
+      margin-bottom: 6px;
+    }
     .card-label {
-      font-size: 12px;
+      font-family: var(--font-display);
+      font-size: 17px;
       font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 10px;
+      color: var(--text-bright);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
     }
-    .card-text { color: var(--ink); font-size: 15px; line-height: 1.5; }
+    .card-text {
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
 
-    /* --- Highlights list -------------------------------------- */
-    .list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+    .list { list-style: none; padding: 0; margin: 0; }
     .list li {
-      padding: 20px 0;
-      border-top: 1px solid var(--border-soft);
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
       display: flex;
-      gap: 20px;
+      gap: 24px;
       align-items: flex-start;
       font-size: 17px;
       line-height: 1.5;
+      color: var(--text);
+      transition: padding 0.2s ease;
     }
-    .list li:last-child { border-bottom: 1px solid var(--border-soft); }
+    .list li:last-child { border-bottom: 1px solid var(--border); }
+    .list li:hover { padding-left: 8px; }
     .list-num {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 400;
+      font-family: var(--font-mono);
       color: var(--accent);
-      min-width: 30px;
-      font-size: 18px;
-      padding-top: 1px;
+      font-size: 13px;
+      min-width: 36px;
+      padding-top: 4px;
     }
 
-    /* --- Services -------------------------------------------- */
-    .services {
+    .services-panel {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 36px;
+      border-radius: 18px;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+    .services-panel::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0.5;
     }
     .services-intro {
       color: var(--muted);
-      margin: 0 0 24px;
+      margin: 0 0 28px;
       font-size: 16px;
     }
-    .services ul { list-style: none; padding: 0; margin: 0; }
-    .services li {
-      padding: 16px 0;
-      border-top: 1px solid var(--border-soft);
+    .services-panel ul { list-style: none; padding: 0; margin: 0; }
+    .services-panel li {
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
       display: flex;
-      gap: 14px;
+      gap: 16px;
       align-items: flex-start;
-      font-size: 16px;
+      font-size: 15.5px;
       line-height: 1.5;
+      color: var(--text);
     }
-    .services li:first-child { border-top: none; }
+    .services-panel li:first-child { border-top: none; }
     .check {
       flex-shrink: 0;
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       border-radius: 999px;
       background: var(--accent-soft);
+      border: 1px solid rgba(94, 234, 212, 0.3);
       color: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 2px;
+      margin-top: 1px;
     }
     .check svg { width: 12px; height: 12px; }
 
-    /* --- Contact CTA section --------------------------------- */
     .contact {
       text-align: center;
-      padding: 96px 0 80px;
+      padding: 120px 0 96px;
+      position: relative;
+      overflow: hidden;
     }
-    .contact h2 {
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
+    .contact::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent) 0%, transparent 60%);
+      opacity: 0.08;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: -1;
     }
+    .contact h2 { margin-left: auto; margin-right: auto; text-align: center; }
     .contact-sub {
       color: var(--muted);
       font-size: 17px;
-      max-width: 520px;
-      margin: 0 auto 32px;
+      max-width: 560px;
+      margin: 0 auto 36px;
     }
     .contact-actions {
       display: flex;
@@ -366,74 +511,99 @@
       flex-wrap: wrap;
     }
 
-    /* --- Footer ---------------------------------------------- */
     footer {
       padding: 32px var(--pad) 48px;
       max-width: var(--max);
       margin: 0 auto;
-      border-top: 1px solid var(--border-soft);
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
-      font-size: 13px;
+      font-family: var(--font-mono);
+      font-size: 12px;
       color: var(--subtle);
+      position: relative;
+      z-index: 1;
     }
 
-    /* --- Motion ---------------------------------------------- */
     .reveal {
       opacity: 0;
-      transform: translateY(12px);
-      animation: reveal 0.7s ease-out forwards;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
     }
-    .reveal-1 { animation-delay: 0.05s; }
-    .reveal-2 { animation-delay: 0.15s; }
-    .reveal-3 { animation-delay: 0.25s; }
-    .reveal-4 { animation-delay: 0.35s; }
-    .reveal-5 { animation-delay: 0.45s; }
-    @keyframes reveal {
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger > * {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+    .stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
+    .stagger.is-visible > *:nth-child(2) { transition-delay: 0.06s; }
+    .stagger.is-visible > *:nth-child(3) { transition-delay: 0.12s; }
+    .stagger.is-visible > *:nth-child(4) { transition-delay: 0.18s; }
+    .stagger.is-visible > *:nth-child(5) { transition-delay: 0.24s; }
+    .stagger.is-visible > *:nth-child(6) { transition-delay: 0.30s; }
+    .stagger.is-visible > *:nth-child(7) { transition-delay: 0.36s; }
+    .stagger.is-visible > *:nth-child(8) { transition-delay: 0.42s; }
+
+    .hero-rise {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .hero-rise-1 { animation-delay: 0.05s; }
+    .hero-rise-2 { animation-delay: 0.18s; }
+    .hero-rise-3 { animation-delay: 0.34s; }
+    .hero-rise-4 { animation-delay: 0.5s; }
+    .hero-rise-5 { animation-delay: 0.66s; }
+    @keyframes rise {
       to { opacity: 1; transform: translateY(0); }
     }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
-      .reveal { opacity: 1; transform: none; }
+      .reveal, .stagger > *, .hero-rise { opacity: 1; transform: none; }
       .status-dot::after { display: none; }
     }
 
-    /* --- Mobile tweaks --------------------------------------- */
     @media (max-width: 640px) {
-      section { padding: 56px 0; }
-      .hero { padding: 56px 0 56px; }
-      .services { padding: 24px; }
-      .hero-meta { gap: 20px; }
-      .nav-name { font-size: 16px; }
-      .nav-cta { padding: 7px 12px; font-size: 13px; }
+      section { padding: 64px 0; }
+      .hero { padding: 56px 0 64px; }
+      .services-panel { padding: 24px; }
+      .nav-name { font-size: 15px; }
+      .nav-cta { padding: 7px 13px; font-size: 12px; }
+      .list li { gap: 14px; font-size: 16px; }
+      .hero::before, .hero::after { width: 400px; height: 400px; }
     }
   </style>
 </head>
 <body>
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a class="nav-name" href="#top">Dileep R</a>
-      <a class="nav-cta" href="#contact">Get in touch</a>
+      <a class="nav-name" href="#top">Dileep&nbsp;R</a>
+      <a class="nav-cta" href="#contact">Get in touch →</a>
     </div>
   </nav>
 
   <main id="top">
-    <!-- Hero -->
     <section class="hero">
-      <div class="status reveal reveal-1">
+      <div class="status hero-rise hero-rise-1">
         <span class="status-dot"></span>
         Available for new projects
       </div>
-      <h1 class="hero-name reveal reveal-2">
-        Dileep&nbsp;R
+      <h1 class="hero-name hero-rise hero-rise-2">
+        Dileep <span class="accent">R</span>
       </h1>
-      <p class="hero-tagline reveal reveal-3">
+      <p class="hero-tagline hero-rise hero-rise-3">
         <strong>Mobile &amp; Web Application Developer.</strong>
         Six years of experience building, shipping, and maintaining production apps — including projects inherited from other developers.
       </p>
-      <div class="hero-actions reveal reveal-4">
+      <div class="hero-actions hero-rise hero-rise-4">
         <a class="btn btn-primary" href="mailto:dileeprofficial@gmail.com">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           Email me
@@ -443,73 +613,89 @@
           +91 70123 08256
         </a>
       </div>
-      <div class="hero-meta reveal reveal-5">
-        <div>Based in <span>Trivandrum, India</span></div>
-        <div>Experience <span>6+ years</span></div>
-        <div>Open to <span>Maintenance · New builds · AMC</span></div>
+      <div class="hero-meta hero-rise hero-rise-5">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Based in</span>
+          <span class="hero-meta-value">Trivandrum, India</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Experience</span>
+          <span class="hero-meta-value">6+ years</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Open to</span>
+          <span class="hero-meta-value">New builds · Maintenance · AMC</span>
+        </div>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about">
+    <section id="about" class="reveal">
       <span class="eyebrow">About</span>
       <h2>Building reliable apps, and stepping in when other developers leave projects behind.</h2>
       <p class="about-text">
-        I'm a software developer with six years of experience in mobile application development, supported by strong backend skills across <strong>Node.js, Python, and PHP</strong>, and hands-on experience with <strong>Firebase, PostgreSQL, and MySQL</strong>. I'm comfortable taking over existing applications — reviewing another developer's codebase, identifying issues, stabilising the project, and keeping it running reliably. If your project has lost its original developer, I can step in and continue from where things were left.
+        I'm a software developer with six years of experience in mobile application development, supported by strong backend skills across <strong>Node.js, Python, and PHP</strong>, hands-on experience with <strong>Firebase, PostgreSQL, and MySQL</strong>, and a working eye for <strong>UI/UX design</strong>. I'm comfortable taking over existing applications — reviewing another developer's codebase, identifying issues, stabilising the project, and keeping it running reliably. If your project has lost its original developer, I can step in and continue from where things were left.
       </p>
     </section>
 
-    <!-- Expertise -->
-    <section id="expertise">
+    <section id="expertise" class="reveal">
       <span class="eyebrow">What I work with</span>
-      <h2>Expertise across mobile, backend, and integrations.</h2>
-      <div class="grid">
+      <h2>Expertise across mobile, backend, design, and integrations.</h2>
+      <div class="grid stagger">
         <div class="card">
+          <div class="card-num">01</div>
           <div class="card-label">Mobile Development</div>
           <div class="card-text">Flutter &amp; Dart for cross-platform apps. State management with Provider, Riverpod, and Bloc. Working knowledge of native Android (Kotlin) and iOS (Swift). End-to-end App Store and Play Store releases.</div>
         </div>
         <div class="card">
+          <div class="card-num">02</div>
+          <div class="card-label">UI / UX Design</div>
+          <div class="card-text">Figma and Adobe XD for wireframing, prototyping, and design systems. Mobile-first responsive design grounded in Material Design and iOS Human Interface Guidelines. User flows that feel intuitive and look polished.</div>
+        </div>
+        <div class="card">
+          <div class="card-num">03</div>
           <div class="card-label">Backend Development</div>
           <div class="card-text">Node.js (Express), Python (Flask, Django), and PHP (Laravel). REST API design, authentication and authorization flows, server-side business logic, and third-party integrations.</div>
         </div>
         <div class="card">
+          <div class="card-num">04</div>
           <div class="card-label">Databases</div>
           <div class="card-text">Firebase Realtime Database and Firestore, PostgreSQL, MySQL, MongoDB, and Redis. Schema design, query optimisation, and data migrations.</div>
         </div>
         <div class="card">
+          <div class="card-num">05</div>
           <div class="card-label">Integrations &amp; APIs</div>
           <div class="card-text">Payment gateways (Razorpay, Stripe), push notifications (FCM, APNs), OAuth and social login, maps and location services, SMS and email providers, and analytics platforms.</div>
         </div>
         <div class="card">
+          <div class="card-num">06</div>
           <div class="card-label">Web &amp; Tooling</div>
           <div class="card-text">HTML, CSS, JavaScript, and responsive design. Postman, Git &amp; GitHub, Agile workflows, debugging legacy code, and code reviews.</div>
         </div>
         <div class="card">
+          <div class="card-num">07</div>
           <div class="card-label">Maintenance &amp; Support</div>
           <div class="card-text">Reading and understanding existing codebases, taking over projects mid-flight, fixing inherited issues, and keeping production applications running reliably over time.</div>
         </div>
       </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience">
+    <section id="experience" class="reveal">
       <span class="eyebrow">Experience</span>
       <h2>A track record of shipping and maintaining real applications.</h2>
-      <ul class="list">
-        <li><span class="list-num">i</span><span>6+ years building and shipping mobile applications across Android and iOS.</span></li>
-        <li><span class="list-num">ii</span><span>Designed and maintained backend services using Python, Node.js, and PHP.</span></li>
-        <li><span class="list-num">iii</span><span>Built and published a production matrimonial application end to end — Flutter front end, Firebase, and a PHP backend — including ongoing updates and store submissions.</span></li>
-        <li><span class="list-num">iv</span><span>Comfortable inheriting and continuing work on projects started by other developers.</span></li>
+      <ul class="list stagger">
+        <li><span class="list-num">01</span><span>6+ years building and shipping mobile applications across Android and iOS.</span></li>
+        <li><span class="list-num">02</span><span>Designed and maintained backend services using Python, Node.js, and PHP.</span></li>
+        <li><span class="list-num">03</span><span>Built and published a production matrimonial application end to end — Flutter front end, Firebase, and a PHP backend — including ongoing updates and store submissions.</span></li>
+        <li><span class="list-num">04</span><span>Comfortable inheriting and continuing work on projects started by other developers.</span></li>
       </ul>
     </section>
 
-    <!-- Services -->
-    <section id="services">
+    <section id="services" class="reveal">
       <span class="eyebrow">Services</span>
       <h2>How I can help.</h2>
-      <div class="services">
+      <div class="services-panel">
         <p class="services-intro">I can take over an existing project or build something new, on a one-time or ongoing basis:</p>
-        <ul>
+        <ul class="stagger">
           <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Review and handover assessment of the current code and setup.</span></li>
           <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Development and deployment of new applications.</span></li>
           <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span>Bug fixing and issue resolution.</span></li>
@@ -520,8 +706,7 @@
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact reveal">
       <span class="eyebrow">Get in touch</span>
       <h2>Tell me about your project.</h2>
       <p class="contact-sub">Whether you need someone to take over an existing application or build something new, I'd be glad to hear what you're working on.</p>
@@ -539,12 +724,11 @@
   </main>
 
   <footer>
-    <div>Dileep R · Trivandrum, India</div>
-    <div>Available for new projects</div>
+    <div>// Dileep R — Trivandrum, India</div>
+    <div>System status: <span style="color: var(--accent)">● online</span></div>
   </footer>
 
   <script>
-    // Add border to nav on scroll
     const nav = document.getElementById('nav');
     const onScroll = () => {
       if (window.scrollY > 8) nav.classList.add('scrolled');
@@ -552,6 +736,17 @@
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+
+    const reveals = document.querySelectorAll('.reveal, .stagger');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    reveals.forEach((el) => io.observe(el));
   </script>
 </body>
 </html>
